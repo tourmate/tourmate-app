@@ -1,4 +1,7 @@
 {
   "name": "TourMate",
-  "displayName": "TourMate"
+  "displayName": "TourMate",
+  "androidStatusBar": {
+    "backgroundColor": "#000000"
+  }
 }
