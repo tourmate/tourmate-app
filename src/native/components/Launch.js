@@ -28,22 +28,10 @@ class Launch extends React.Component {
         <Button
           type="primary"
           onPress={() =>
-            Actions.login({ data: "Custom data", title: "Custom title" })
+            Actions.auth({ data: "Custom data", title: "Custom title" })
           }
         >
           LOGIN
-        </Button>
-        <WhiteSpace />
-        <Button type="primary" onPress={Actions.signup}>
-          SIGN UP
-        </Button>
-        <WhiteSpace />
-        <Button type="primary" onPress={Actions.profile}>
-          Profile
-        </Button>
-        <WhiteSpace />
-        <Button type="primary" onPress={Actions.home2}>
-          Home
         </Button>
         <WhiteSpace />
         <Button type="primary" onPress={Actions.error}>

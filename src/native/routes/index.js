@@ -52,8 +52,10 @@ const Index = (
       initial
       type={ActionConst.RESET}
     />
-    <Scene key="login" component={Login} title="Login" back />
-    <Scene key="signup" component={SignUp} title="SignUp" back />
+    <Stack key="auth" hideNavBar>
+      <Scene key="login" component={Login} title="Login" back />
+      <Scene key="signup" component={SignUp} title="SignUp" back />
+    </Stack>
     <Stack key="customNavBar" hideTabBar headerLayoutPreset="center">
       <Scene
         key="customNavBar1"

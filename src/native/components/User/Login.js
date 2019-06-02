@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Actions } from "react-native-router-flux";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import {
   Button,
   InputItem,
@@ -18,57 +19,50 @@ export default class Login extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Login with TourMate</Text>
-        <WhiteSpace />
-        <WingBlank style={styles.textFieldContainer}>
-          <InputItem
-            clear
+      <KeyboardAwareScrollView style={styles.scrollContainer}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>Login with TourMate</Text>
+          <WhiteSpace />
+          <TextInput
+            style={styles.textField}
+            onChangeText={email => this.setState({ email })}
             value={this.state.email}
-            onChange={value => {
-              this.setState({
-                email: value
-              });
-            }}
             placeholder="E-mail Address"
+            autoCompleteType="email"
           />
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank style={styles.textFieldContainer}>
-          <InputItem
-            clear
-            type="password"
+          <TextInput
+            style={styles.textField}
+            onChangeText={password => this.setState({ password })}
             value={this.state.password}
-            onChange={value => {
-              this.setState({
-                password: value
-              });
-            }}
             placeholder="Password"
+            secureTextEntry
           />
-        </WingBlank>
-        <WhiteSpace />
-        <Button
-          style={styles.loginBtn}
-          //activeStyle={styles.loginBtnActive}
-          type="primary"
-          onPress={() => Actions.home1()}
-        >
-          LOGIN
-        </Button>
-        <WhiteSpace />
-        <WingBlank style={styles.signUpTextContainer}>
-          <Text style={styles.instructions}>Don't have an account?</Text>
-          <Text style={styles.signUpLink} onPress={() => Actions.signup()}>
-            Create One
-          </Text>
-        </WingBlank>
-      </View>
+          <WhiteSpace />
+          <Button
+            style={styles.loginBtn}
+            //activeStyle={styles.loginBtnActive}
+            type="primary"
+            onPress={() => Actions.home1()}
+          >
+            LOGIN
+          </Button>
+          <WhiteSpace />
+          <WingBlank style={styles.signUpTextContainer}>
+            <Text style={styles.instructions}>Don't have an account?</Text>
+            <Text style={styles.signUpLink} onPress={() => Actions.signup()}>
+              Create One
+            </Text>
+          </WingBlank>
+        </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    backgroundColor: "#FFFFFF"
+  },
   container: {
     flex: 1,
     justifyContent: "center",
@@ -79,25 +73,26 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     margin: 10,
-    marginBottom: 60
-    // color: "#F5FCFF"
+    marginBottom: 60,
+    marginTop: "40%"
   },
   instructions: {
     textAlign: "center",
-    // color: "#F5FCFF",
     marginBottom: 5
+  },
+  textField: {
+    height: 40,
+    width: "80%",
+    borderBottomColor: "#4F6D7A",
+    borderBottomWidth: 0.5,
+    color: "#4F6D7A",
+    marginBottom: 30
   },
   signUpLink: {
     textAlign: "center",
     color: "#1890ff",
     marginBottom: 5,
     marginLeft: 5
-  },
-  textFieldContainer: {
-    marginBottom: 20,
-    marginRight: 22,
-    marginLeft: 5,
-    alignItems: "center"
   },
   signUpTextContainer: {
     marginTop: 20,
@@ -107,11 +102,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   loginBtn: {
-    width: "90%",
-    marginTop: 40
-    //borderColor: "#007887",
-    //backgroundColor: "#FFFFFF",
-    // top: 100
+    width: "80%",
+    marginTop: 20
   },
   loginBtnActive: {
     // backgroundColor: "#007887"
