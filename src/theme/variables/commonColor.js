@@ -3,13 +3,13 @@ const platform = Platform.OS;
 
 export default {
   // Color
-  brandPrimary: platform === "ios" ? "#4F6D7A" : "#4F6D7A",
+  brandPrimary: platform === "ios" ? "#192a56" : "#192a56",
 
   // Font
   fontSizeBase: 15,
 
   // Text
-  textColor: "#000",
+  textColor: "#FFFFFF",
 
   primary: "#555CC4",
   primaryLight: "#829BF8",

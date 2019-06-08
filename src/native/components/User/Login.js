@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import {
-  Button,
-  InputItem,
-  WhiteSpace,
-  WingBlank
-} from "@ant-design/react-native";
+import { WhiteSpace, WingBlank } from "@ant-design/react-native";
+import { Button } from "react-native-elements";
+import LinearGradient from "react-native-linear-gradient";
 
 export default class Login extends Component {
   state = {
@@ -39,13 +36,14 @@ export default class Login extends Component {
           />
           <WhiteSpace />
           <Button
-            style={styles.loginBtn}
+            buttonStyle={styles.loginBtn}
+            containerStyle={styles.buttonContainer}
+            titleStyle={styles.buttonTitle}
             //activeStyle={styles.loginBtnActive}
-            type="primary"
             onPress={() => Actions.home1()}
-          >
-            LOGIN
-          </Button>
+            loading={false}
+            title="LOGIN"
+          />
           <WhiteSpace />
           <WingBlank style={styles.signUpTextContainer}>
             <Text style={styles.instructions}>Don't have an account?</Text>
@@ -53,6 +51,12 @@ export default class Login extends Component {
               Create One
             </Text>
           </WingBlank>
+          <LinearGradient
+            colors={["#4c669f", "#3b5998", "#192f6a"]}
+            style={styles.linearGradient}
+          >
+            <Text style={styles.buttonText}>Login with Facebook</Text>
+          </LinearGradient>
         </View>
       </KeyboardAwareScrollView>
     );
@@ -74,7 +78,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: 10,
     marginBottom: 60,
-    marginTop: "40%"
+    marginTop: "40%",
+    color: "#192a56"
   },
   instructions: {
     textAlign: "center",
@@ -102,10 +107,33 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   loginBtn: {
+    height: 50,
+    borderRadius: 50
+  },
+  buttonContainer: {
     width: "80%",
     marginTop: 20
   },
+  buttonTitle: {
+    fontSize: 18,
+    fontWeight: "100",
+    letterSpacing: 1
+  },
   loginBtnActive: {
     // backgroundColor: "#007887"
+  },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: "Gill Sans",
+    textAlign: "center",
+    margin: 10,
+    color: "#ffffff",
+    backgroundColor: "transparent"
   }
 });

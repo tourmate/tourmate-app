@@ -33,8 +33,6 @@ import EchoView from "../components/EchoView";
 import CustomNavBarView from "../components/CustomNavBarView";
 import CustomNavBar from "../components/CustomNavBar";
 import CustomNavBar2 from "../components/CustomNavBar2";
-import Login from "../components/User/Login";
-import SignUp from "../components/User/SignUp";
 
 const Index = (
   <Stack key="root" titleStyle={{ alignSelf: "center" }} hideNavBar>
@@ -53,8 +51,20 @@ const Index = (
       type={ActionConst.RESET}
     />
     <Stack key="auth" hideNavBar>
-      <Scene key="login" component={Login} title="Login" back />
-      <Scene key="signup" component={SignUp} title="SignUp" back />
+      <Scene
+        key="login"
+        component={LoginContainer}
+        Layout={LoginComponent}
+        title="Login"
+        back
+      />
+      <Scene
+        key="signup"
+        component={SignUpContainer}
+        Layout={SignUpComponent}
+        title="SignUp"
+        back
+      />
     </Stack>
     <Stack key="customNavBar" hideTabBar headerLayoutPreset="center">
       <Scene
@@ -108,7 +118,8 @@ const Index = (
           key="profile"
           title="PROFILE"
           icon={() => <Icon name="user" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
+          {...DefaultProps.navbarPropsWithBack}
+          back
         >
           <Scene
             key="profileHome"

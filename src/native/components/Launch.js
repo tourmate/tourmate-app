@@ -4,22 +4,7 @@ import { Button, WhiteSpace } from "@ant-design/react-native";
 import { Actions } from "react-native-router-flux";
 import { MessageBarManager } from "react-native-message-bar";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#4F6D7A"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10,
-    color: "#F5FCFF"
-  }
-});
-
-class Launch extends React.Component {
+export default class Launch extends React.Component {
   render() {
     return (
       <View {...this.props} style={styles.container}>
@@ -72,4 +57,17 @@ class Launch extends React.Component {
   }
 }
 
-export default Launch;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFFFFF"
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10,
+    color: "#192a56"
+  }
+});
