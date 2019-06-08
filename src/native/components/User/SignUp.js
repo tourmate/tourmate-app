@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: 10,
     marginBottom: 60,
-    marginTop: "20%"
+    marginTop: "20%",
+    color: "#192a56"
   },
   instructions: {
     textAlign: "center",
