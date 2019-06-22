@@ -5,12 +5,23 @@ import { Actions } from "react-native-router-flux";
 import { MessageBarManager } from "react-native-message-bar";
 
 export default class Launch extends React.Component {
+  state = {
+    authentidated: false
+  };
+  componentDidMount() {
+    const { authentidated } = this.state;
+    if (authentidated) {
+      setTimeout(() => Actions.home(), 100);
+    } else {
+      setTimeout(() => Actions.auth(), 100);
+    }
+  }
   render() {
     return (
       <View {...this.props} style={styles.container}>
-        <Text style={styles.welcome}>Welcome</Text>
+        <Text style={styles.welcome}>Welcome Back!</Text>
         <WhiteSpace />
-        <Button
+        {/* <Button
           type="primary"
           onPress={() =>
             Actions.auth({ data: "Custom data", title: "Custom title" })
@@ -51,7 +62,7 @@ export default class Launch extends React.Component {
         <WhiteSpace />
         <Button type="primary" onPress={Actions.drawer}>
           TabBar
-        </Button>
+        </Button> */}
       </View>
     );
   }

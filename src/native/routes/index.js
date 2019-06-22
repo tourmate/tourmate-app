@@ -25,7 +25,7 @@ import Launch from "../components/Launch";
 // import DrawerContent from './components/drawer/DrawerContent';
 // import TabView from './components/TabView';
 // import TabIcon from './components/TabIcon';
-import EchoView from "../components/EchoView";
+// import EchoView from "../components/EchoView";
 // import MessageBar from './components/MessageBar';
 // import ErrorModal from './components/modal/ErrorModal';
 // import DemoLightbox from './components/lightbox/DemoLightbox';
@@ -33,16 +33,17 @@ import EchoView from "../components/EchoView";
 import CustomNavBarView from "../components/CustomNavBarView";
 import CustomNavBar from "../components/CustomNavBar";
 import CustomNavBar2 from "../components/CustomNavBar2";
+import HomeNavBar from "../components/navigation/HomeNavBar";
 
 const Index = (
   <Stack key="root" titleStyle={{ alignSelf: "center" }} hideNavBar>
-    <Scene
+    {/* <Scene
       key="echo"
       back
       clone
       component={EchoView}
       getTitle={({ navigation }) => navigation.state.key}
-    />
+    /> */}
     <Scene
       key="launch"
       component={Launch}
@@ -106,12 +107,13 @@ const Index = (
         {...DefaultProps.tabProps}
       >
         <Stack
-          key="home1"
+          key="home"
           title={AppConfig.appName.toUpperCase()}
           icon={() => <Icon name="global" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
+          navBar={HomeNavBar}
+          back
         >
-          <Scene key="home2" component={HomeComponent} />
+          <Scene key="homepage" component={HomeComponent} />
         </Stack>
 
         <Stack

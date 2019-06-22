@@ -40,7 +40,7 @@ export default class Login extends Component {
             containerStyle={styles.buttonContainer}
             titleStyle={styles.buttonTitle}
             //activeStyle={styles.loginBtnActive}
-            onPress={() => Actions.home1()}
+            onPress={() => Actions.home()}
             loading={false}
             title="LOGIN"
           />

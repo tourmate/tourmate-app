@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { Button, WhiteSpace, WingBlank } from "@ant-design/react-native";
+import { WhiteSpace, WingBlank } from "@ant-design/react-native";
+import { Button } from "react-native-elements";
 
 export default class SignUp extends Component {
   state = {
@@ -49,13 +50,14 @@ export default class SignUp extends Component {
           />
           <WhiteSpace />
           <Button
-            style={styles.signupBtn}
+            buttonStyle={styles.signupBtn}
+            containerStyle={styles.buttonContainer}
+            titleStyle={styles.buttonTitle}
             //activeStyle={styles.loginBtnActive}
-            type="primary"
-            onPress={() => {}}
-          >
-            SIGN UP
-          </Button>
+            onPress={() => Actions.home()}
+            loading={true}
+            title="SIGN UP"
+          />
           <WhiteSpace />
           <WingBlank style={styles.loginTextContainer}>
             <Text style={styles.instructions}>Already a member?</Text>
@@ -106,8 +108,17 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   signupBtn: {
+    height: 50,
+    borderRadius: 50
+  },
+  buttonContainer: {
     width: "80%",
     marginTop: 20
+  },
+  buttonTitle: {
+    fontSize: 18,
+    fontWeight: "100",
+    letterSpacing: 1
   },
   loginTextContainer: {
     marginTop: 20,
